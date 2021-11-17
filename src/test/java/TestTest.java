@@ -1,6 +1,7 @@
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -14,7 +15,8 @@ public class TestTest {
 
     @Before
     public void setUp() {
-
+        //System.setProperty("webdriver.chrome.driver", "C:/Users/AnnieG/IdeaProjects/Testing/src/main/drivers/chromedriver.exe");
+        //driver = new ChromeDriver();
     }
     @After
     public void tearDown() {
@@ -22,9 +24,8 @@ public class TestTest {
     }
     @Test
     public void test() throws InterruptedException {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\AnnieG\\IdeaProjects\\Testing\\src\\main\\drivers\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:/Users/AnnieG/IdeaProjects/Testing/src/main/drivers/chromedriver.exe");
         driver = new ChromeDriver();
-        driver.manage().timeouts().wait(10);
         driver.get("https://playground.learnqa.ru/puzzle/triangle");
         driver.manage().window().setSize(new Dimension(1536, 824));
         {
@@ -40,5 +41,6 @@ public class TestTest {
             List<WebElement> elements = driver.findElements(By.linkText("Ссылка на ответы"));
             assert(elements.size() > 0);
         }
+
     }
 }
